@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>MySplit Invite</title>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const invite = params.get("invite");
+
+        if (invite) {
+
+            // Try opening app
+            window.location.href = `mysplit://join?invite=${invite}`;
+
+            // Fallback to Play Store
+            setTimeout(() => {
+                window.location.href =
+                    "https://play.google.com/store/apps/details?id=com.deepdeveloper.mysplit";
+            }, 2000);
+        }
+    </script>
+</head>
+
+<body style="font-family:sans-serif;text-align:center;padding-top:100px;">
+<h1>Opening MySplit...</h1>
+<p>If app does not open, Play Store will open automatically.</p>
+</body>
+</html>
